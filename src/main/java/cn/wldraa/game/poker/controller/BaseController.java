@@ -1,8 +1,9 @@
 package cn.wldraa.game.poker.controller;
 
-import cn.wldraa.game.poker.dao.UserDTO;
+import cn.wldraa.game.poker.dto.UserDTO;
 import cn.wldraa.game.poker.dto.ResultDTO;
 import cn.wldraa.game.poker.exception.ServiceException;
+import cn.wldraa.game.poker.util.TokenUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -42,7 +43,7 @@ public class BaseController {
     }
 
     protected UserDTO getCurrentUser() {
-        Object o = RequestContextHolder.getRequestAttributes().getAttribute("CURRENT_USER", RequestAttributes.SCOPE_REQUEST);
+        Object o = RequestContextHolder.getRequestAttributes().getAttribute(TokenUtils.CURRENT_USER, RequestAttributes.SCOPE_REQUEST);
         if (null == o) {
             throw new ServiceException("session_expired", "登陆失效，请重新登陆");
         }

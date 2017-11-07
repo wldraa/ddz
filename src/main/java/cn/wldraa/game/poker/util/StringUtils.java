@@ -7,6 +7,7 @@ import org.springframework.beans.BeanUtils;
 import java.beans.PropertyDescriptor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.util.Random;
 
 /**
  * @author zhangqian
@@ -14,6 +15,8 @@ import java.lang.reflect.Method;
 public class StringUtils {
 
     private static Logger logger = LoggerFactory.getLogger(StringUtils.class);
+
+    public static String DICTIONARY_LOWER_LETTER_AND_NUM = "abcdefghijklmnopqrstuvwxyz0123456789";
 
     /**
      * dump an object to string
@@ -62,6 +65,15 @@ public class StringUtils {
             sb.append('|');
         }
         sb.deleteCharAt(sb.length() - 1);
+        return sb.toString();
+    }
+
+    public static String generatorRandomString(String dictionary, int length) {
+        Random random = new Random();
+        StringBuilder sb = new StringBuilder(length);
+        for (int i = 0 ; i < length ; i++) {
+            sb.append(dictionary.charAt(random.nextInt(dictionary.length())));
+        }
         return sb.toString();
     }
 

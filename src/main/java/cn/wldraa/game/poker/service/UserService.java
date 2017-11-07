@@ -5,6 +5,6 @@ package cn.wldraa.game.poker.service;
  */
 public interface UserService {
 
-    void login(String userName, String password);
+    String login(String userName, String password);
 
 }

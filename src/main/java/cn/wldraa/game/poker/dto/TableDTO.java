@@ -1,4 +1,4 @@
-package cn.wldraa.game.poker.dao;
+package cn.wldraa.game.poker.dto;
 
 /**
  * @author zhangqian

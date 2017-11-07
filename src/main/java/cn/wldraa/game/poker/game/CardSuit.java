@@ -22,7 +22,7 @@ public class CardSuit {
 
     public boolean greaterThan(CardSuit cardSuit) {
         return cardStyle.greaterThan(cardSuit.cardStyle) ||
-                (cardStyle == cardSuit.cardStyle && value.greaterThan(cardSuit.value));
+                (cardStyle == cardSuit.cardStyle && cardList.size() == cardSuit.cardList.size() && value.greaterThan(cardSuit.value));
     }
 
 }

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+    <!-- customer css -->
+    <link rel="stylesheet" href="css/index.css" />
+
+    <!-- bootstrap & fontawesome -->
+    <link rel="stylesheet" href="ace/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="ace/font-awesome/4.5.0/css/font-awesome.min.css" />
+
+    <!-- page specific plugin styles -->
+
+    <!-- text fonts -->
+    <link rel="stylesheet" href="ace/css/fonts.googleapis.com.css" />
+
+    <!-- ace styles -->
+    <link rel="stylesheet" href="ace/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style" />
+
+    <!--[if lte IE 9]>
+    <link rel="stylesheet" href="ace/css/ace-part2.min.css" class="ace-main-stylesheet" />
+    <![endif]-->
+    <link rel="stylesheet" href="ace/css/ace-skins.min.css" />
+    <link rel="stylesheet" href="ace/css/ace-rtl.min.css" />
+
+    <!--[if lte IE 9]>
+    <link rel="stylesheet" href="ace/css/ace-ie.min.css" />
+    <![endif]-->
+
+    <!-- inline styles related to this page -->
+
+    <!-- ace settings handler -->
+    <script src="ace/js/ace-extra.min.js"></script>
+
+    <!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
+
+    <!--[if lte IE 8]>
+    <script src="ace/js/html5shiv.min.js"></script>
+    <script src="ace/js/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+<div class="" id="app">
+    <div v-show="stage == 'login'" class="user-login" style="display: none">
+        <div class="col-xs-6">
+
+        </div>
+        <div class="col-xs-6">
+            <form action="#" class="form-horizontal col-xs-6 login-form">
+                <div class="form-group">
+                    <div class="input-group ">
+                        <span class="input-group-addon"><i class="ace-icon fa fa-user"></i></span>
+                        <input type="text" class="form-control" v-model="loginUserName" placeholder="User name" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group ">
+                        <span class="input-group-addon"><i class="ace-icon fa fa-lock"></i></span>
+                        <input type="text" class="form-control" v-model="loginPassword" placeholder="Password" />
+                    </div>
+                </div>
+                <div class="row col-xs-12">
+                    <span class="red text-center" v-show="loginErrorMessage">{{ loginErrorMessage }}</span>
+                </div>
+                <div class="input-group-btn">
+                    <a id="login-submit" class="btn btn-primary btn-sm" @click="login" data-loading-text="Login···" role="button">Login</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <div v-show="stage == 'loading'" id="loading" class="container" style="position: fixed;width: 100%">
+        <div class="row" style="margin-top: 10%;width: 100%;position: absolute">
+            <div class="col-xs-offset-1 col-xs-4" style="height: 0.3rem;background-color:#00BE67;margin-top: 8.33%"></div>
+            <div class="col-xs-2" style="border: 0.3rem solid #00BE67;border-radius: 100%;padding: 0">
+                <div style="width: 100%;padding: 50% 0;"></div>
+            </div>
+            <div class="col-xs-4" style="height: 0.3rem;background-color:#00BE67;margin-top: 8.33%;"></div>
+        </div>
+        <div class="row" style="margin-top: 10%;width: 100%;position: absolute">
+            <div class="loading-icon" style="width: 2%;max-width: 1rem; background-color:#1B6AAA;left: 8%; margin-top: 6%;position: absolute;padding: 0;">
+                <div style="width: 100%;padding: 50% 0;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="ace/js/jquery-2.1.4.min.js"></script>
+
+<script src="ace/js/bootstrap.min.js"></script>
+
+<script src="https://cdn.bootcss.com/vue/2.4.4/vue.min.js"></script>
+<script src="ace/js/jquery-ui.custom.min.js"></script>
+<script src="ace/js/jquery.ui.touch-punch.min.js"></script>
+<script src="ace/js/jquery.easypiechart.min.js"></script>
+<script src="ace/js/jquery.sparkline.index.min.js"></script>
+<script src="ace/js/jquery.flot.min.js"></script>
+<script src="ace/js/jquery.flot.pie.min.js"></script>
+<script src="ace/js/jquery.flot.resize.min.js"></script>
+
+<!-- ace scripts -->
+<script src="ace/js/ace-elements.min.js"></script>
+<script src="ace/js/ace.min.js"></script>
+
+<script src="js/api.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>

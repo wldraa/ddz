@@ -1,0 +1,107 @@
+#loading .loading-icon {
+    animation: load-in-x 3s ease-in-out infinite alternate
+        , load-in-y 3s ease-in-out infinite alternate;
+}
+
+#app {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #BA874C;
+}
+
+.user-login {
+    /*position: absolute;*/
+    width: 1024px;
+    height: 576px;
+    margin: 2rem auto;
+    background-color: #FEE388;
+    border-radius: 20px;
+}
+
+.user-login .login-form {
+    margin-top: 20%;
+}
+
+@keyframes load-in-x {
+     0% {
+         left: 8%;
+         transform: rotate(0deg);
+     }
+     100% {
+         left: 91%;
+         transform: rotate(3600deg);
+     }
+ }
+@keyframes load-in-y {
+    0% {
+        margin-top: 6%;
+    }
+    40% {
+        margin-top: 6%;
+    }
+    50% {
+        margin-top: 0;
+    }
+    60% {
+        margin-top: 6%;
+    }
+    100% {
+        margin-top: 6%;
+    }
+}
+/** 求你了，别秀了 */
+@keyframes -load-in-x {
+    0% {
+        left: 8%;
+        transform: rotate(0deg);
+    }
+    35% {
+        left: 40%;
+    }
+    40% {
+        left: 50%;
+    }
+    45% {
+        left: 60%;
+    }
+    50% {
+        left: 50%;
+    }
+    55% {
+        left: 40%;
+    }
+    60% {
+        left: 50%;
+    }
+    65% {
+        left: 60%;
+    }
+    100% {
+        left: 91%;
+        transform: rotate(3600deg);
+    }
+}
+@keyframes -load-in-y {
+    0% {
+        margin-top: 6%;
+    }
+    35% {
+        margin-top: 6%;
+    }
+    40% {
+        margin-top: 0;
+    }
+    50% {
+        margin-top: 12%;
+    }
+    60% {
+        margin-top: 0;
+    }
+    65% {
+        margin-top: 5%;
+    }
+    100% {
+        margin-top: 6%;
+    }
+}

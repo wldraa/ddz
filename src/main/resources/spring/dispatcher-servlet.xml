@@ -30,6 +30,13 @@
         </mvc:message-converters>
     </mvc:annotation-driven>
 
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <mvc:exclude-mapping path="/user/login" />
+            <bean class="cn.wldraa.game.poker.interceptor.UserLoginInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
 
 
 </beans>

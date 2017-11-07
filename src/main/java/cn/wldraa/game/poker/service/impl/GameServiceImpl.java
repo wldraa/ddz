@@ -1,7 +1,7 @@
 package cn.wldraa.game.poker.service.impl;
 
-import cn.wldraa.game.poker.dao.TableDTO;
-import cn.wldraa.game.poker.dao.UserDTO;
+import cn.wldraa.game.poker.dto.TableDTO;
+import cn.wldraa.game.poker.dto.UserDTO;
 import cn.wldraa.game.poker.exception.ServiceException;
 import cn.wldraa.game.poker.game.Player;
 import cn.wldraa.game.poker.game.Room;

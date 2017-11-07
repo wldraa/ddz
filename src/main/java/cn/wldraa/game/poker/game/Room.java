@@ -1,6 +1,6 @@
 package cn.wldraa.game.poker.game;
 
-import cn.wldraa.game.poker.dao.UserDTO;
+import cn.wldraa.game.poker.dto.UserDTO;
 
 import java.util.ArrayList;
 import java.util.List;

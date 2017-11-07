@@ -19,7 +19,12 @@ public class UserController extends BaseController {
 
     @RequestMapping("/login")
     public ResultDTO login(String userName, String password) {
-        userService.login(userName, password);
-        return doneSuccess();
+        String token = userService.login(userName, password);
+        return doneSuccess(token);
+    }
+
+    @RequestMapping("/info")
+    public ResultDTO info() {
+        return doneSuccess(getCurrentUser());
     }
 }

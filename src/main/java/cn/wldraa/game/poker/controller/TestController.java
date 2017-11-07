@@ -15,13 +15,13 @@ import java.util.Map;
  */
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/api")
 public class TestController extends BaseController {
 
     @Autowired
     private GameService gameService;
 
-    @RequestMapping("test")
+    @RequestMapping("/test")
     public Map<String, Object> test() {
         Map<String, Object> result = new HashMap<String, Object>();
         result.put("success", "true");

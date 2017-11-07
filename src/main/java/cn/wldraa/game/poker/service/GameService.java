@@ -1,7 +1,7 @@
 package cn.wldraa.game.poker.service;
 
-import cn.wldraa.game.poker.dao.TableDTO;
-import cn.wldraa.game.poker.dao.UserDTO;
+import cn.wldraa.game.poker.dto.TableDTO;
+import cn.wldraa.game.poker.dto.UserDTO;
 
 import java.util.List;
 

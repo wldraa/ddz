@@ -1,6 +1,5 @@
 package cn.wldraa.game.poker.controller;
 
-import cn.wldraa.game.poker.dao.UserDTO;
 import cn.wldraa.game.poker.dto.ResultDTO;
 import cn.wldraa.game.poker.service.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
