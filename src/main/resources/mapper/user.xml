@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="cn.wldraa.game.poker.dao.UserDao">
-    <select id="queryList" resultType="cn.wldraa.game.poker.entity.User">
+<mapper namespace="cn.wldraa.ddz.dao.UserDao">
+    <select id="queryList" resultType="cn.wldraa.ddz.entity.User">
         select * from user
     </select>
 
-    <select id="queryByName" resultType="cn.wldraa.game.poker.entity.User">
+    <select id="queryByName" resultType="cn.wldraa.ddz.entity.User">
         select * from user where user_name=#{_parameter}
     </select>
 </mapper>

@@ -1,6 +1,5 @@
 
-import cn.wldraa.game.poker.entity.User;
-import cn.wldraa.game.poker.game.*;
+import cn.wldraa.ddz.game.*;
 import org.junit.Test;
 
 import java.util.ArrayList;
