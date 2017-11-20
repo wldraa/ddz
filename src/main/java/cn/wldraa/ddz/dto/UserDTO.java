@@ -1,5 +1,7 @@
 package cn.wldraa.ddz.dto;
 
+import java.util.Objects;
+
 /**
  * @author zhangqian
  */
@@ -53,5 +55,15 @@ public class UserDTO {
 
     public void setScore(Integer score) {
         this.score = score;
+    }
+
+    @Override
+    public int hashCode() {
+        return id;
+    }
+
+    @Override
+    public boolean equals(Object user) {
+        return user instanceof UserDTO && Objects.equals(id, ((UserDTO) user).id);
     }
 }

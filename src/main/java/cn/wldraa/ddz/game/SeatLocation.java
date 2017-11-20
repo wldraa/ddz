@@ -12,4 +12,8 @@ public enum  SeatLocation {
         SeatLocation[] locations = SeatLocation.values();
         return locations[(this.ordinal() + 1) % locations.length];
     }
+
+    public SeatLocation lastLocation() {
+        return this.nextLocation().nextLocation();
+    }
 }

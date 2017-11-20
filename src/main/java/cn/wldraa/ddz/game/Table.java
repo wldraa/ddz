@@ -4,6 +4,7 @@ import cn.wldraa.ddz.dto.UserDTO;
 import cn.wldraa.ddz.exception.GameException;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -12,8 +13,6 @@ import java.util.Map;
 public class Table {
 
     private Map<SeatLocation, Player> players;
-
-    private Map<Integer, Player> d;
 
     private Game game;
 
@@ -28,6 +27,29 @@ public class Table {
         players.put(location, new Player(user));
     }
 
+
+    public void ready(SeatLocation location) {
+        Player player = players.get(location);
+        if (player == null) {
+            throw new GameException("玩家不存在");
+        }
+        player.setReady(true);
+
+        if (isAllPlayerReady()) {
+            startGame();
+        }
+    }
+
+    private boolean isAllPlayerReady() {
+        for(SeatLocation location : SeatLocation.values()) {
+            Player player = players.get(location);
+            if (player == null || !player.getReady()) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public synchronized Game startGame() {
         if (players.size() < 3) {
             throw new GameException("player_too_little", "玩家过少");
@@ -39,6 +61,18 @@ public class Table {
 
     public synchronized Map<SeatLocation, Player> getPlayers() {
         return players;
+    }
+
+    public synchronized void bid(SeatLocation location, Boolean isBid) {
+        game.bid(location, isBid);
+    }
+
+    public synchronized void play(SeatLocation location, List<Card> cardList) {
+        game.play(location, cardList);
+    }
+
+    public synchronized GameStatus status(SeatLocation location) {
+        return game;
     }
 
 }

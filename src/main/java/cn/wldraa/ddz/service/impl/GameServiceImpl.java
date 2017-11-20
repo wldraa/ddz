@@ -1,19 +1,18 @@
 package cn.wldraa.ddz.service.impl;
 
+import cn.wldraa.ddz.exception.GameException;
+import cn.wldraa.ddz.game.*;
 import cn.wldraa.ddz.service.GameService;
 import cn.wldraa.ddz.dto.TableDTO;
 import cn.wldraa.ddz.dto.UserDTO;
 import cn.wldraa.ddz.exception.ServiceException;
-import cn.wldraa.ddz.game.Player;
-import cn.wldraa.ddz.game.Room;
-import cn.wldraa.ddz.game.SeatLocation;
-import cn.wldraa.ddz.game.Table;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * @author zhangqian
@@ -48,4 +47,32 @@ public class GameServiceImpl implements GameService {
         }
         room.join(user, tableId, location);
     }
+
+    @Override
+    public void bid(UserDTO user, Boolean isBid) {
+        Room.Position position = getPosition(user);
+        position.getTable().bid(position.getSeatLocation(), isBid);
+    }
+
+    @Override
+    public void play(UserDTO user, List<Integer> cardIds) {
+        List<Card> cardList = cardIds.stream().map(Card::new).collect(Collectors.toList());
+        Room.Position position = getPosition(user);
+        position.getTable().play(position.getSeatLocation(), cardList);
+    }
+
+    @Override
+    public GameStatus status(UserDTO user) {
+        Room.Position position = getPosition(user);
+        return position.getTable().status(position.getSeatLocation());
+    }
+
+    private Room.Position getPosition(UserDTO user) {
+        Room.Position position = room.findPosition(user);
+        if (position == null) {
+            throw new GameException("先找个位置坐下来吧");
+        }
+        return position;
+    }
+
 }

@@ -11,21 +11,21 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @RestController
-@RequestMapping("/room")
+//@RequestMapping("/room")
 public class RoomController extends BaseController {
 
-    @Autowired
-    private GameService gameService;
-
-    @RequestMapping("/list")
-    public ResultDTO roomList() {
-        return doneSuccess(gameService.tableList());
-    }
-
-    @RequestMapping("/join")
-    public ResultDTO join(Integer tableId, String seatId) {
-        gameService.joinTable(getCurrentUser(), tableId, seatId);
-        return doneSuccess();
-    }
+//    @Autowired
+//    private GameService gameService;
+//
+//    @RequestMapping("/list")
+//    public ResultDTO roomList() {
+//        return doneSuccess(gameService.tableList());
+//    }
+//
+//    @RequestMapping("/join")
+//    public ResultDTO join(Integer tableId, String seatId) {
+//        gameService.joinTable(getCurrentUser(), tableId, seatId);
+//        return doneSuccess();
+//    }
 
 }

@@ -1,5 +1,7 @@
 package cn.wldraa.ddz.game;
 
+import java.util.Objects;
+
 /**
  * 牌，表示一张牌
  * @author zhangqian
@@ -72,5 +74,15 @@ public class Card {
 
     public void setColor(CardColor color) {
         this.color = color;
+    }
+
+    @Override
+    public int hashCode() {
+        return id;
+    }
+
+    @Override
+    public boolean equals(Object card) {
+        return card instanceof Card && Objects.equals(id, ((Card) card).id);
     }
 }
