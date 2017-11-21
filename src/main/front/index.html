@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:v-bind="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8">
     <title></title>
@@ -45,7 +45,7 @@
 </head>
 <body>
 <div class="" id="app">
-    <div v-show="stage == 'login'" class="user-login" style="display: none">
+    <div v-show="stage == 'login'" class="win" style="display: none">
         <div class="col-xs-6">
 
         </div>
@@ -60,7 +60,7 @@
                 <div class="form-group">
                     <div class="input-group ">
                         <span class="input-group-addon"><i class="ace-icon fa fa-lock"></i></span>
-                        <input type="text" class="form-control" v-model="loginPassword" placeholder="Password" />
+                        <input type="password" class="form-control" v-model="loginPassword" placeholder="Password" />
                     </div>
                 </div>
                 <div class="row col-xs-12">
@@ -73,6 +73,19 @@
         </div>
     </div>
 
+    <div v-show="stage == 'room'" id="room" class="win" style="display: none">
+        <div class="room-tables">
+            <div v-for="(table, index) in tables" class="tables" v-bind:data-name="index">
+                <a class="seat s1 btn btn-warning" :disabled="table.s1" data-name="S1" data-loading-text="." href="javascript:;" @click="joinTable">+</a>
+                <a class="seat s2 btn btn-warning" :disabled="table.s2" data-name="S2" data-loading-text="." href="javascript:;" @click="joinTable">+</a>
+                <a class="seat s3 btn btn-warning" :disabled="table.s3" data-name="S3" data-loading-text="·" href="javascript:;" @click="joinTable">+</a>
+            </div>
+        </div>
+    </div>
+
+    <div v-show="stage == 'game'" id="game" class="win" style="display: none">
+
+    </div>
 
     <div v-show="stage == 'loading'" id="loading" class="container" style="position: fixed;width: 100%">
         <div class="row" style="margin-top: 10%;width: 100%;position: absolute">
@@ -88,6 +101,7 @@
             </div>
         </div>
     </div>
+
 </div>
 <script src="ace/js/jquery-2.1.4.min.js"></script>
 

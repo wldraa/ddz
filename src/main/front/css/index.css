@@ -10,7 +10,7 @@
     background-color: #BA874C;
 }
 
-.user-login {
+.win {
     /*position: absolute;*/
     width: 1024px;
     height: 576px;
@@ -19,8 +19,40 @@
     border-radius: 20px;
 }
 
-.user-login .login-form {
+.win .login-form {
     margin-top: 20%;
+}
+
+.room-tables {
+    clear: both;
+    height: 576px;
+    overflow: hidden;
+}
+
+.room-tables .tables {
+    width: 200px;
+    height: 200px;
+    float: left;
+    position: relative;
+}
+
+.tables .seat {
+    position: absolute;
+    border-width: 2px;
+    padding: 3px 9px;
+}
+
+.tables .s1 {
+    top: 30px;
+    left: 85px;
+}
+.tables .s2 {
+    top: 140px;
+    left: 30px;
+}
+.tables .s3 {
+    top: 140px;
+    left: 140px;
 }
 
 @keyframes load-in-x {

@@ -22,5 +22,9 @@ public class ContextUtils implements ApplicationContextAware {
         return applicationContext.getBean(name);
     }
 
+    public static ApplicationContext getContext() {
+        return applicationContext;
+    }
+
 
 }

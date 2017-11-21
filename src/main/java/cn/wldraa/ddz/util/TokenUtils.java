@@ -14,13 +14,17 @@ public class TokenUtils {
 
     public static final String REDIS_PREFIX = "USER:";
 
-    public static final long SESSION_EXPIRE_TIME = 600;
+    public static final long SESSION_EXPIRE_TIME = 3600;
 
     private static JedisPool jedisPool = (JedisPool) ContextUtils.getBean("jedisPool");
 
     public static UserDTO getUserByToken(String token) {
         Jedis jedis = jedisPool.getResource();
         String userInfo = jedis.get(REDIS_PREFIX + token);
+        if (userInfo == null) {
+            return null;
+        }
+        jedis.expire(REDIS_PREFIX + token, (int) SESSION_EXPIRE_TIME);
         return JSON.parseObject(userInfo, UserDTO.class);
     }
 

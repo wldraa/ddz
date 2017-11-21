@@ -2,7 +2,10 @@ $(function() {
     var apiPrefix = getPrefix(getEnv());
     var apiUrl = {
         login: apiPrefix + '/user/login',
-        info: apiPrefix + '/user/info'
+        info: apiPrefix + '/user/info',
+        tableList: apiPrefix + '/room/list',
+        joinTable: apiPrefix + '/room/join',
+        status: apiPrefix + '/game/status'
     };
     window.apiService = {
         get: function(url, data, cb, fcb) {
@@ -37,6 +40,15 @@ $(function() {
         },
         getInfo: function(token, callback, fcb) {
             this.get(apiUrl.info, {token: token}, callback, fcb);
+        },
+        getTableList: function(cb, fcb) {
+            this.get(apiUrl.tableList, {token: localStorage.token}, cb, fcb);
+        },
+        joinTable: function(table, seat, cb, fcb) {
+            this.get(apiUrl.joinTable, {token: localStorage.token, tableId: table, seatId: seat}, cb, fcb);
+        },
+        getStatus: function(cb, fcb) {
+            this.get(apiUrl.status, {token: localStorage.token}, cb, fcb);
         }
     };
 

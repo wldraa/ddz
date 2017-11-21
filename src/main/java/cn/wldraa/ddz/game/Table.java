@@ -71,7 +71,7 @@ public class Table {
         game.play(location, cardList);
     }
 
-    public synchronized GameStatus status(SeatLocation location) {
+    public synchronized Game status(SeatLocation location) {
         return game;
     }
 

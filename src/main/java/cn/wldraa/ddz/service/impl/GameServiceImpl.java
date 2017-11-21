@@ -49,6 +49,12 @@ public class GameServiceImpl implements GameService {
     }
 
     @Override
+    public void ready(UserDTO user) {
+        Room.Position position = getPosition(user);
+        position.getTable().ready(position.getSeatLocation());
+    }
+
+    @Override
     public void bid(UserDTO user, Boolean isBid) {
         Room.Position position = getPosition(user);
         position.getTable().bid(position.getSeatLocation(), isBid);
@@ -62,7 +68,7 @@ public class GameServiceImpl implements GameService {
     }
 
     @Override
-    public GameStatus status(UserDTO user) {
+    public Game gameStatus(UserDTO user) {
         Room.Position position = getPosition(user);
         return position.getTable().status(position.getSeatLocation());
     }

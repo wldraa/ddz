@@ -31,6 +31,10 @@ public class Room {
     }
 
     public void join(UserDTO userDTO, Integer tableId, SeatLocation location) {
+        Position position = findPosition(userDTO);
+        if (position != null) {
+            leave(userDTO);
+        }
         Table table = tableList.get(tableId);
         table.addPlayer(userDTO, location);
         positionMap.put(userDTO, new Position(location, table));

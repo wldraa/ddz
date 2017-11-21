@@ -1,7 +1,7 @@
 package cn.wldraa.ddz.controller;
 
 import cn.wldraa.ddz.dto.ResultDTO;
-import cn.wldraa.ddz.game.GameStatus;
+import cn.wldraa.ddz.game.Game;
 import cn.wldraa.ddz.service.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,6 +30,12 @@ public class GameController extends BaseController {
         return doneSuccess();
     }
 
+    @RequestMapping("/game/ready")
+    public ResultDTO ready() {
+        gameService.ready(getCurrentUser());
+        return doneSuccess();
+    }
+
     @RequestMapping("/game/bid")
     public ResultDTO bid(Boolean isBid) {
         gameService.bid(getCurrentUser(), isBid);
@@ -44,7 +50,7 @@ public class GameController extends BaseController {
 
     @RequestMapping("/game/status")
     public ResultDTO status() {
-        GameStatus status = gameService.status(getCurrentUser());
+        Game status = (Game) gameService.gameStatus(getCurrentUser());
         return doneSuccess(status);
     }
 }
